@@ -1,5 +1,5 @@
 <x-layout.app>
-    <div class="py-20 px-10 bg-white">
+    <div class="py-20 px-10 bg-white container mx-auto">
         <h1 class="text-5xl mb-10">Thank you for your order, we've sent an e-mail to {{ $order->customer_email }} with your
             order details.</h1>
         <label class="mb-3 block p-4 text-2xl border-b-2 border-b-black">Name: {{ $order->customer_name }}</label>

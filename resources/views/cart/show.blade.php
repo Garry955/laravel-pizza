@@ -32,6 +32,7 @@
                                 @csrf
                                 <input type="hidden" name="totalPrice" value="{{ $totalPrice }}">
                                 <input type="hidden" name="cartItems" value="{{ $cartItems }}">
+                                <input type="hidden" name="cartID" value="{{ $cartID }}">
                                 <div class="mb-6">
                                     <input type="text" placeholder="Name" name="name"
                                         value="{{ auth()->user() ? auth()->user()->name : '' }}"

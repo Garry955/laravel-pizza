@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -22,16 +23,11 @@ class OrderController extends Controller
             'cart_items' => $request->cartItems,
             'order_total' => $request->totalPrice
         ];
-        // dd($request->all());
         $order = Order::create($formFields);
+        Cart::destroy($request->all()['cartID']);
+        // dd($order, $request->all()['cartID']);
 
         $cartItems = json_decode($order->cart_items);
-        // $cartItems = $order->cart_items;
-        // dd(is_array($cartItems));
-        // foreach($cartItems as $item) {
-        //     dd($item->id);
-
-        // }
         return view('cart.success')->with(['order' => $order, 'cartItems' => $cartItems, 'message' => 'Successfully ordered.']);
     }
 }

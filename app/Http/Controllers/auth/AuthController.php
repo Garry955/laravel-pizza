@@ -27,6 +27,7 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required|confirmed|min:6',
         ]);
+        $formFields['phone'] = $request->phone;
         // Bcrypt password
         $formFields['password'] = bcrypt($formFields['password']);
         //Store user in db
