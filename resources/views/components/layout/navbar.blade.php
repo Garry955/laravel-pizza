@@ -16,7 +16,11 @@
                     class="absolute right-4 top-full w-full max-w-[250px] py-5 px-6 rounded-b-lg shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none md:">
                     <ul class="block lg:flex flex-row-reverse">
                         @foreach ($navigationItems as $item)
-                            <x-layout.navbar-item :href="$item['href']">{{ $item['label'] }}</x-layout.navbar-item>    
+                            @if(isset($item['fa-pikto']))
+                                <i class="{{ $item['fa-pikto'] }} text-xl font-medium py-2 hover:text-white"></i>
+                            @else
+                                <x-layout.navbar-item :href="$item['href']">{{ $item['label'] }}</x-layout.navbar-item>    
+                            @endif
                         @endforeach
                     </ul>
                 </nav>

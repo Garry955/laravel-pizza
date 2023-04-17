@@ -15,8 +15,7 @@ class Navbar extends Component
     public function __construct()
     {
         $this->navigationItems = [
-            ['label' => 'home', 'href' => route('home')],
-            ['label' => 'cart', 'href' => route('home')],
+            ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
             ['label' => 'menu_1', 'href' => route('home')],
             ['label' => 'menu_2', 'href' => route('home')],
         ];
