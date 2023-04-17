@@ -9,13 +9,13 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=open-sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i"
+        rel="stylesheet" />
 </head>
 
 <body class="antialiased">
 
-    <body class="antialiased relative text-white" x-data="{ 'isModalOpen': false }"
-        x-on:keydown.escape="isModalOpen=false">
+    <body class="antialiased relative text-white" x-data="{ 'isModalOpen': false }" x-on:keydown.escape="isModalOpen=false">
         {{-- Flash Message Component --}}
         {{-- <x-flash-message /> --}}
 
@@ -23,8 +23,7 @@
         {{-- <x-layout.navbar /> --}}
 
         {{-- Main wrapper --}}
-        <div
-            class="min-h-screen md:w-3/6 md:ml-[16.66%] md:mr-auto md:border-r-white md:border-r-2">
+        <div class="min-h-screen md:w-3/6 md:ml-[16.66%] md:mr-auto md:border-r-white md:border-r-2">
             {{-- Main section --}}
             {{ $slot }}
         </div>
