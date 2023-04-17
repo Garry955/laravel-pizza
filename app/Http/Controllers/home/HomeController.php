@@ -18,16 +18,22 @@ class HomeController extends Controller
     {
         // dd($request->category);
         // $products = Product::latest()->paginate(12);
-        $categoryId = $request->category ?? null;
-        $categoryName = Category::find($request->category)?->name ?? null;
-
-        $products = Category::find($categoryId)?->products;
-
-        $products = Product::where('category_id', $categoryId)->get();
-
-        $products = Product::whereHas('category', function ($query) use ($categoryId) {
-            $query->where('id', $categoryId);
-        })->paginate(12);
+        $categoryId = 0;
+        $categoryName = '';
+        if($request->category){
+            $categoryId = $request->category ?? null;
+            $categoryName = Category::find($request->category)?->name ?? null;
+    
+            $products = Category::find($categoryId)?->products;
+    
+            $products = Product::where('category_id', $categoryId)->get();
+    
+            $products = Product::whereHas('category', function ($query) use ($categoryId) {
+                $query->where('id', $categoryId);
+            })->paginate(12);
+        } else {
+            $products = Product::latest()->paginate(12);
+        }
         return view('index',)->with(['products' => $products, 'categoryId' => $categoryId, 'categoryName' => $categoryName]);
     }
 }

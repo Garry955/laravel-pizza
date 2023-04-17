@@ -2,7 +2,7 @@
     <x-home.hero background='pizza-hero.jpg'/>
     {{-- Products list section --}}
     <div id="products" class="md:flex md:flex-wrap md:justify-evenly container m-auto my-16">
-        @if(!is_null($categoryId))
+        @if($categoryId)
             <div class="my-10 w-full block ">
                 <h2 class="text-4xl">Category: {{ $categoryName }}</h2>
             </div>
