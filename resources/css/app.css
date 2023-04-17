@@ -22,3 +22,7 @@ html,
 .color-secondary {
     color: #e7c28b;
 }
+
+.bg-price-label {
+    background-color: #ff7300;
+}

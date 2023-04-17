@@ -17,9 +17,7 @@
         rel="stylesheet" />
 </head>
 
-<body class="antialiased">
-
-    <body class="antialiased relative text-white" x-data="{ 'isModalOpen': false }" x-on:keydown.escape="isModalOpen=false">
+<body class="antialiased bg-slate-200">
         {{-- Flash Message Component --}}
         {{-- <x-flash-message /> --}}
 
@@ -36,7 +34,6 @@
 
         {{-- Import app.js --}}
         @vite('resources/js/app.js')
-    </body>
 </body>
 
 </html>

@@ -11,7 +11,7 @@ class Card extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $name ='', public string $image = '', public int $price = 0)
+    public function __construct(public $product)
     {
         //
     }
