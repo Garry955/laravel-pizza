@@ -1,5 +1,5 @@
 <x-layout.app>
-    <section class="bg-[#F4F7FF] pt-[120px]">
+    <section class="bg-[#F4F7FF] py-[120px]">
         <div class="container mx-auto mt-40">
             <h1 class="text-7xl">Registration</h1>
             <div class="-mx-4 flex flex-wrap">

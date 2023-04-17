@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\auth\AuthController;
@@ -28,7 +29,7 @@ Route::delete('/cart/delete/{cart}', [CartController::class, 'destroy'])->name('
 
 route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
-Route::controller(AuthController::class)->prefix('auth')->group(function() {
+Route::controller(AuthController::class)->group(function() {
     //Show Login form
     Route::get('/login', 'login')->name('login')->middleware('guest');
     //Authenticate user
@@ -39,5 +40,14 @@ Route::controller(AuthController::class)->prefix('auth')->group(function() {
     Route::get('/register','register')->name('register')->middleware('guest');
     // Register user
     Route::post('store', 'store')->name('auth.store');
+});
+
+/**
+ * @todo
+ * Create Admin endpoints and layouts.. maybe a middleware to check on auth()
+ */
+Route::controller(AdminController::class)->prefix('admin')->name('admin.')->group(function(){
+    Route::get('/', 'login');
+    Route::get('/authenticate', 'authenticate')->name('authenticate');
 });
 

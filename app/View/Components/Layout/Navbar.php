@@ -25,14 +25,14 @@ class Navbar extends Component
             $this->navigationItems = [
                 ['label' => 'Cart', 'href' => route('cart.show'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
                 ['label' => 'Logout', 'href' => route('logout')],
-                ['label' => 'Categories', 'href' => '#', 'dropdown' => true, 'items' => $this->categories],
+                ['label' => 'Products', 'href' => '/', 'dropdown' => true, 'items' => $this->categories],
             ];
         } else {
             $this->navigationItems = [
                 ['label' => 'cart', 'href' => route('cart.show'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
                 ['label' => 'register', 'href' => route('register')],
                 ['label' => 'login', 'href' => route('login')],
-                ['label' => 'Categories', 'href' => '#', 'dropdown' => true, 'items' => $this->categories],
+                ['label' => 'Products', 'href' => '/', 'dropdown' => true, 'items' => $this->categories],
             ];
         }
     }

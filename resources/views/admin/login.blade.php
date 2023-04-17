@@ -1,11 +1,11 @@
 <x-layout.app>
     <section class="bg-[#F4F7FF] py-[120px]">
         <div class="container mx-auto my-60">
-            <h1 class="text-7xl">Sign In</h1>
+            <h1 class="text-7xl">Sign In as Admin</h1>
             <div class="-mx-4 flex flex-wrap">
                 <div class="w-full px-4">
                     <div class="relative mx-auto overflow-hidden rounded-lg py-16 px-10 sm:px-12 md:px-[60px]">
-                        <form action="{{ route('authenticate') }}">
+                        <form action="{{ route('admin.authenticate') }}">
                             @csrf
                             <div class="mb-6">
                                 <input type="text" placeholder="Email" name="email"
@@ -30,12 +30,6 @@
                                     class="bordder-primary w-full cursor-pointer rounded-md border bg-primary py-3 px-5 text-base text-white transition hover:bg-opacity-90" />
                             </div>
                         </form>
-                        <p class="text-base text-[#adadad]">
-                            Don't have an account?
-                            <a href="{{ route('register') }}" class="text-primary hover:underline">
-                                Sign Up
-                            </a>
-                        </p>
                         <div>
                         </div>
                     </div>
@@ -43,4 +37,5 @@
             </div>
         </div>
     </section>
+
 </x-layout.app>
