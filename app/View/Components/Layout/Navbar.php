@@ -3,17 +3,20 @@
 namespace App\View\Components\Layout;
 
 use Closure;
-use Illuminate\Contracts\View\View;
+use App\Models\Cart;
 use Illuminate\View\Component;
+use Illuminate\Contracts\View\View;
 
 class Navbar extends Component
 {
     public array $navigationItems = [];
+    public int $cartTotal = 0;
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
+        $this->cartTotal = Cart::getTotal() ?? 0;
         if (auth()->user()) {
             $this->navigationItems = [
                 ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],

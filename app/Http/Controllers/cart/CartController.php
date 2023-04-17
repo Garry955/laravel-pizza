@@ -2,15 +2,34 @@
 
 namespace App\Http\Controllers\cart;
 
-use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\CartDetail;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    public function addCart(Product $product, Request $request) {
-        dd(Session::getId());
-        dd($request,$product);
+    public function addCart(Product $product, Request $request)
+    {
+        $customer_id = auth()->user()->id ?? Session::getId();
+        if (!Cart::where('customer_id', $customer_id)->first()) {
+            $cart = Cart::create(['customer_id' => $customer_id])->first();
+        } else {
+            $cart = Cart::where('customer_id', $customer_id)->first();
+        }
+        if ($request->quantity == 0) {
+            CartDetail::where(
+                ['cart_id' => $cart->id, 'product_id' => $product->id]
+            )->delete();
+        } else {
+            CartDetail::updateOrCreate(
+                ['cart_id' => $cart->id, 'product_id' => $product->id],
+                ['quantity' => $request->quantity]
+            );
+        }
+
+        return redirect()->back()->with('message', $product->name . ' added to your cart');
     }
 }

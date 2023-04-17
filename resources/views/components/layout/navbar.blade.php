@@ -17,7 +17,12 @@
                     <ul class="block lg:flex flex-row-reverse">
                         @foreach ($navigationItems as $item)
                             @if(isset($item['fa-pikto']))
-                                <i class="{{ $item['fa-pikto'] }} text-xl font-medium py-2 hover:text-white"></i>
+                                <li class="bg-inherit inline-block w-auto px-10">
+                                    <a href="#" class="text-xl font-medium md:ml-0 text-dark py-2 hover:text-white lg:inline-flex">
+                                        <i class="{{ $item['fa-pikto'] }} text-2xl h-full font-medium hover:text-white"></i>
+                                        <span class="text-white rounded-full bg-black inline-block h-8 w-8 text-bold">{{ $cartTotal }}</span>
+                                    </a>
+                                </li>
                             @else
                                 <x-layout.navbar-item :href="$item['href']">{{ $item['label'] }}</x-layout.navbar-item>    
                             @endif
