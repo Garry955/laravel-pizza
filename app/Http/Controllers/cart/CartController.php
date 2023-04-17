@@ -39,9 +39,21 @@ class CartController extends Controller
         $customer_id = auth()->user() ? auth()->user()->id : Session::getId();
         $cartID = Cart::where('customer_id', $customer_id)->first()?->id;
         $cartItems = CartDetail::where('cart_id', $cartID)->with('product')->get();
+        $totalPrice = 0;
+        foreach ($cartItems as $item) {
+            $totalPrice += ($item->quantity * $item->product->price);
+        }
         return view('cart.show')->with([
             'cartTotal' => $cartTotal,
-            'cartItems' => $cartItems
+            'cartItems' => $cartItems,
+            'totalPrice' => $totalPrice,
+            'cartID' => $cartID
         ]);
+    }
+
+    public function destroy(Cart $cart)
+    {
+        $cart->delete();
+        return redirect('/')->with('message', 'Cart deleted successfully');
     }
 }

@@ -54,8 +54,6 @@
                                 Sign In
                             </a>
                         </p>
-                        <div>
-                        </div>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ class Navbar extends Component
             ];
         } else {
             $this->navigationItems = [
-                ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
+                ['label' => 'cart', 'href' => route('cart.show'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
                 ['label' => 'register', 'href' => route('register')],
                 ['label' => 'login', 'href' => route('login')],
                 ['label' => 'menu_1', 'href' => route('home')],

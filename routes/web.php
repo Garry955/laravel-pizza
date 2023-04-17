@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\cart\CartController;
 use App\Http\Controllers\home\HomeController;
@@ -23,6 +24,9 @@ Route::get('/product/{product}', [ProductController::class, 'show'])->name('prod
 
 Route::post('product/addCart/{product}', [CartController::class, 'addCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
+Route::delete('/cart/delete/{cart}', [CartController::class, 'destroy'])->name('cart.delete');
+
+route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
 Route::controller(AuthController::class)->prefix('auth')->group(function() {
     //Show Login form
