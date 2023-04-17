@@ -19,8 +19,10 @@ use App\Http\Controllers\product\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::post('product/addCart/{product}', [CartController::class, 'addCart'])->name('cart.add');
 Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+
+Route::post('product/addCart/{product}', [CartController::class, 'addCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
 
 Route::controller(AuthController::class)->prefix('auth')->group(function() {
     //Show Login form

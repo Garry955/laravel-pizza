@@ -18,7 +18,7 @@
                         @foreach ($navigationItems as $item)
                             @if(isset($item['fa-pikto']))
                                 <li class="bg-inherit inline-block w-auto px-10">
-                                    <a href="#" class="text-xl font-medium md:ml-0 text-dark py-2 hover:text-white lg:inline-flex">
+                                    <a href="{{ $item['href'] }}" class="text-xl font-medium md:ml-0 text-dark py-2 hover:text-white lg:inline-flex">
                                         <i class="{{ $item['fa-pikto'] }} text-2xl h-full font-medium hover:text-white"></i>
                                         <span class="text-white rounded-full bg-black inline-block h-8 w-8 text-bold">{{ $cartTotal }}</span>
                                     </a>

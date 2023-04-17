@@ -19,7 +19,7 @@ class Navbar extends Component
         $this->cartTotal = Cart::getTotal() ?? 0;
         if (auth()->user()) {
             $this->navigationItems = [
-                ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
+                ['label' => 'cart', 'href' => route('cart.show'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
                 ['label' => 'logout', 'href' => route('logout')],
                 ['label' => 'menu_1', 'href' => route('home')],
                 ['label' => 'menu_2', 'href' => route('home')],

@@ -32,4 +32,16 @@ class CartController extends Controller
 
         return redirect()->back()->with('message', $product->name . ' added to your cart');
     }
+
+    public function show()
+    {
+        $cartTotal = Cart::getTotal() ?? 0;
+        $customer_id = auth()->user() ? auth()->user()->id : Session::getId();
+        $cartID = Cart::where('customer_id', $customer_id)->first()?->id;
+        $cartItems = CartDetail::where('cart_id', $cartID)->with('product')->get();
+        return view('cart.show')->with([
+            'cartTotal' => $cartTotal,
+            'cartItems' => $cartItems
+        ]);
+    }
 }
