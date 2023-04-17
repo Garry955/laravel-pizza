@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html, * {
     font-family: 'Open Sans', sans-serif;
+}
+
+.bg-primary {
+    background-color: #ff2c04;
+}
+
+.color-primary {
+    color: #ff2c04;
 }

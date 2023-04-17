@@ -1,3 +1,3 @@
-<x-app-layout>
+<x-layout.app>
     <h1>INDEX</h1>
-</x-app-layout>
+</x-layout.app>
