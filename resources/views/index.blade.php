@@ -1,5 +1,8 @@
 <x-layout.app>
     <x-home.hero background='pizza-hero.jpg'>
     </x-home.hero>
-    <h1>INDEX</h1>
+    {{-- Products list section --}}
+    <div id="products">
+        <x-product.card />
+    </div>
 </x-layout.app>

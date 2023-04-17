@@ -32,6 +32,8 @@
             {{ $slot }}
         </div>
 
+        <x-layout.footer />
+
         {{-- Import app.js --}}
         @vite('resources/js/app.js')
     </body>
