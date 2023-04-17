@@ -27,7 +27,7 @@
         <x-layout.navbar />
 
         {{-- Main wrapper --}}
-        <div class="min-h-screen md:w-3/6 md:ml-[16.66%] md:mr-auto md:border-r-white md:border-r-2">
+        <div class="min-h-screen">
             {{-- Main section --}}
             {{ $slot }}
         </div>
