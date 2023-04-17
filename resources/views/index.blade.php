@@ -1,6 +1,5 @@
 <x-layout.app>
-    <x-home.hero background='pizza-hero.jpg'>
-    </x-home.hero>
+    <x-home.hero background='pizza-hero.jpg'/>
     {{-- Products list section --}}
     <div id="products" class="md:flex md:flex-wrap md:justify-evenly container m-auto my-16">
         @forelse ($products as $product)

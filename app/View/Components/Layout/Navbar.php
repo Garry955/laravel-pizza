@@ -14,11 +14,22 @@ class Navbar extends Component
      */
     public function __construct()
     {
-        $this->navigationItems = [
-            ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
-            ['label' => 'menu_1', 'href' => route('home')],
-            ['label' => 'menu_2', 'href' => route('home')],
-        ];
+        if (auth()->user()) {
+            $this->navigationItems = [
+                ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
+                ['label' => 'logout', 'href' => route('logout')],
+                ['label' => 'menu_1', 'href' => route('home')],
+                ['label' => 'menu_2', 'href' => route('home')],
+            ];
+        } else {
+            $this->navigationItems = [
+                ['label' => 'cart', 'href' => route('home'), 'fa-pikto' => 'fa-solid fa-cart-shopping'],
+                ['label' => 'register', 'href' => route('register')],
+                ['label' => 'login', 'href' => route('login')],
+                ['label' => 'menu_1', 'href' => route('home')],
+                ['label' => 'menu_2', 'href' => route('home')],
+            ];
+        }
     }
 
     /**

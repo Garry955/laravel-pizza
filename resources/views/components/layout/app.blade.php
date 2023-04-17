@@ -19,7 +19,7 @@
 
 <body class="antialiased bg-slate-200">
         {{-- Flash Message Component --}}
-        {{-- <x-flash-message /> --}}
+        <x-layout.flash-message />
 
         {{-- Navbar Component --}}
         <x-layout.navbar />
