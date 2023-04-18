@@ -7,6 +7,7 @@ use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\cart\CartController;
 use App\Http\Controllers\home\HomeController;
 use App\Http\Controllers\product\ProductController;
+use App\Http\Controllers\user\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,32 @@ use App\Http\Controllers\product\ProductController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/product/{product}', [ProductController::class, 'show'])->name('product.show');
+Route::controller(ProductController::class)->prefix('product')->name('product.')->group(function() {
+    Route::get('/create', 'create')->name('create');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/edit/{product}', 'edit')->name('edit');
+    Route::post('/update/{product}', 'update')->name('update');
+    Route::delete('/delete/{product}', 'destroy')->name('delete');
+    Route::get('/{product}', 'show')->name('show');
+});
+
+Route::controller(OrderController::class)->prefix('admin/order')->name('order')->group(function() {
+    Route::get('/', 'index');
+    Route::delete('/delete/{order}', 'destroy')->name('.delete');
+    Route::get('/edit/{order}', 'edit')->name('.edit');
+    Route::patch('/update/{order}', 'update')->name('.update');
+    Route::get('/{order}', 'show')->name('.show');
+});
+
+Route::controller(UserController::class)->prefix('admin/user')->name('user')->group(function() {
+    Route::get('/', 'index');
+    Route::get('/create', 'create')->name('.create');
+    Route::post('/store', 'store')->name('.store');
+    Route::delete('/delete/{user}', 'destroy')->name('.delete');
+    Route::get('/edit/{user}', 'edit')->name('.edit');
+    Route::patch('/update/{user}', 'update')->name('.update');
+    Route::get('/{user}', 'show')->name('.show');
+});
 
 Route::post('product/addCart/{product}', [CartController::class, 'addCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'show'])->name('cart.show');
@@ -49,5 +75,7 @@ Route::controller(AuthController::class)->group(function() {
 Route::controller(AdminController::class)->prefix('admin')->name('admin.')->group(function(){
     Route::get('/', 'login');
     Route::get('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/logout', 'logout')->name('logout');
+    Route::get('/dashboard', 'index')->name('dashboard')->middleware('admin');
 });
 

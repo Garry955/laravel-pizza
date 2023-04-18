@@ -1,4 +1,4 @@
-<x-layout.app>
+<x-layout.admin>
     <section class="bg-[#F4F7FF] py-[120px]">
         <div class="container mx-auto my-60">
             <h1 class="text-7xl">Sign In as Admin</h1>
@@ -38,4 +38,4 @@
         </div>
     </section>
 
-</x-layout.app>
+</x-layout.admin>

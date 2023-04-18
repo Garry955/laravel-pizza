@@ -26,3 +26,13 @@ html,
 .bg-price-label {
     background-color: #ff7300;
 }
+
+#table tr {
+    text-align: left;
+}
+#table .row:nth-child(even) {
+    background-color: #f3f3f3;
+}
+#table th, td {
+    padding: 15px;
+  }
