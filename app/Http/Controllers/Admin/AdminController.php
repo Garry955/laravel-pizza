@@ -50,7 +50,6 @@ class AdminController extends Controller
     {
 
         $products = Product::latest()->paginate(30);
-        ddd($products);
         return view('admin.dashboard')->with(['products' => $products]);
     }
 }
